@@ -7,13 +7,11 @@ const userSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   email: {
@@ -22,9 +20,13 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
-  street: {
+  address: {
     type: String,
     required: true,
+  },
+  apartment: {  
+    type: String,
+    required: false,
   },
   city: {
     type: String,
