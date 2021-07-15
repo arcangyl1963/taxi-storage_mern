@@ -1,6 +1,6 @@
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import Home from './pages/Home';
+import CustomerPortal from './pages/CustomerPortal';
 
 
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <ApolloProvider client={client}>   
         <div className="container">
-          <Home />
+          <CustomerPortal />
         </div>
     </ApolloProvider>
   );
