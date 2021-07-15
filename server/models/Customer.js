@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 
 // to be expanded
 
-const userSchema = new Schema({
+const customerSchema = new Schema({
   firstName: {
     type: String,
     required: true,
@@ -47,6 +47,6 @@ const userSchema = new Schema({
   
 });
 
-const User = model('User', userSchema);
+const Customer = model('User', customerSchema);
 
-module.exports = User;
+module.exports = Customer;

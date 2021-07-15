@@ -1,9 +1,9 @@
-const { User } = require('../models');
+const { Customer } = require('../models');
 
 const resolvers = {
     Query: {
       user: async () => {
-        return User.find();
+        return Customer.find();
       },  
     },
   };
