@@ -6,6 +6,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    password: String
     address: String
     apartment: String
     city: String
@@ -13,6 +14,14 @@ const typeDefs = gql`
     zip: String
     phone: String
   }
+
+  type Operator {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+    password: String
+  }  
 
   type Query {
     user: [Customer]!

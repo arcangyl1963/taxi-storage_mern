@@ -20,6 +20,11 @@ const customerSchema = new Schema({
     unique: true,
     trim: true,
   },
+  password: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   address: {
     type: String,
     required: true,
