@@ -1,12 +1,4 @@
 /* ready for styling */
-/* #customer-portal {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    background: var(--daffodil) url(./images/ts-landing-background@1x.png) no-repeat center;
-    background-size: cover;
-    display: flex;
-    /* width: 1440px; */
 
     /*------------------------
     web fonts
@@ -16,20 +8,24 @@
 
   :root { 
     --daffodil: #ffeb34;
+    font-family: sans-serif;
+  }
+  body {
+    text-align: center;
   }
 
   .container-center-horizontal {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    pointer-events: none;
+    /* justify-content: center; */
+    /* pointer-events: none; */
     width: 100%;
     height: 100vh;
   }
-  .container {
-    display: flex;
+  .container-fluid {
+    /* display: flex; */
     flex-direction: row;
-    justify-content: space-evenly;
+   align-content: center;
     background-color: var(--daffodil);
     width: 100%;
   }
@@ -37,23 +33,28 @@
     width: 100%;
     justify-content: space-evenly;
     font-family: 'Hammersmith One', sans-serif;
-    /* font-weight: 500; */
-    font-size: 1.75rem;
+    padding: 0em;
   }
   #basic-navbar-nav {
     display: flex;
     width: 90%;
-    justify-content: space-evenly;
-  }
-  .navbar-nav {
+    justify-content: space-between;
+    font-family: 'Hammersmith One', sans-serif;
     margin: 1em;
+    padding: 0em;
   }
-  .nav-link {
-    padding: 1em 3.875em .5em 6em;
-    color: #c97a08;
+  #custom-navlink {
+    margin-left:7em;
+    color: #c18127;
+    font-size: 2rem;
   }
-  a:hover .nav-link {
-    color: #2b4a98;
+  #form-navlink {
+    margin-left:1em;
+    font-size: 1rem;
+    font-family: 'Hammersmith One', sans-serif;
+  }
+  #custom-navlink:hover {
+    color: #000000;
     cursor: pointer;
   }
 
@@ -75,34 +76,44 @@ and (-webkit-min-device-pixel-ratio: 2) {
     flex-direction: row;
     justify-content: center;
     /* pointer-events: none; */
-    /* width: 100%; */
-    /* height: 100vh; */
+    width: 75%;
+    height: 100vh;
   }
-  .container {
+  .container-fluid {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
     background-color: var(--daffodil);
-    width: 50%;
+    width: 100%;
   }
   .navbar {
-    width: 50%;
+    width: 100%;
     justify-content: space-evenly;
     font-family: 'Hammersmith One', sans-serif;
-    /* font-weight: 500; */
-    font-size: 1rem;
+    padding: 0em;
   }
   #basic-navbar-nav {
     display: flex;
-    width: 50%;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Hammersmith One', sans-serif;
+    margin: 1em;
+    padding: 0em;
   }
-  .navbar-nav {
-    margin: .5em;
+  #custom-navlink {
+    margin-left: 1em;
+    color: #c18127;
+    font-size: 1rem;
   }
-  .nav-link {
-    padding: 1em;
-    color: #c97a08;
+  #form-navlink {
+    margin-left:1em;
+    font-size: 1rem;
+    font-family: 'Hammersmith One', sans-serif;
+  }
+  #custom-navlink:hover {
+    color: #000000;
+    cursor: pointer;
   }
 }
 
@@ -119,13 +130,14 @@ and (-webkit-min-device-pixel-ratio: 2) {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    pointer-events: none;
-    width: 100%;
+    /* pointer-events: none; */
+    width: 75%;
     height: 100vh;
   }
-  .container {
+  .container-fluid {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
     background-color: var(--daffodil);
     width: 100%;
@@ -134,38 +146,30 @@ and (-webkit-min-device-pixel-ratio: 2) {
     width: 100%;
     justify-content: space-evenly;
     font-family: 'Hammersmith One', sans-serif;
-    /* font-weight: 500; */
-    font-size: 1.75rem;
+    padding: 0em;
   }
   #basic-navbar-nav {
     display: flex;
-    width: 90%;
-    justify-content: space-evenly;
-  }
-  .navbar-nav {
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Hammersmith One', sans-serif;
     margin: 1em;
+    padding: 0em;
   }
-  .nav-link {
-    padding: 1em;
-    color: #c97a08;
+  #custom-navlink {
+    margin-left: 1em;
+    color: #c18127;
+    font-size: 1rem;
   }
-}
-
-/* Portrait */
-@media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: portrait) {
-}
-
-/* Landscape */
-@media only screen 
-and (min-device-width: 320px) 
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: landscape) {
-
+  #form-navlink {
+    margin-left:1em;
+    font-size: 1rem;
+    font-family: 'Hammersmith One', sans-serif;
+  }
+  #custom-navlink:hover {
+    color: #000000;
+    cursor: pointer;
+  }
 }
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
@@ -179,13 +183,14 @@ and (-webkit-min-device-pixel-ratio: 2) {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    pointer-events: none;
-    width: 50%;
+    /* pointer-events: none; */
+    width: 75%;
     height: 100vh;
   }
-  .container {
+  .container-fluid {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
     background-color: var(--daffodil);
     width: 100%;
@@ -194,39 +199,30 @@ and (-webkit-min-device-pixel-ratio: 2) {
     width: 100%;
     justify-content: space-evenly;
     font-family: 'Hammersmith One', sans-serif;
-    /* font-weight: 500; */
-    font-size: 1.75rem;
+    padding: 0em;
   }
   #basic-navbar-nav {
     display: flex;
-    width: 90%;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Hammersmith One', sans-serif;
+    margin: 1em;
+    padding: 0em;
   }
-  .navbar-nav {
-    margin: .5em;
+  #custom-navlink {
+    margin-left: 1em;
+    color: #c18127;
+    font-size: 1rem;
   }
-  .nav-link {
-    /* padding: 1em 3.875em .5em 6em; */
-    color: #c97a08;
+  #form-navlink {
+    margin-left:1em;
+    font-size: 1rem;
+    font-family: 'Hammersmith One', sans-serif;
   }
-}
-
-/* Portrait */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 667px) 
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: portrait) { 
-
-}
-
-/* Landscape */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 667px) 
-and (-webkit-min-device-pixel-ratio: 2)
-and (orientation: landscape) { 
-
+  #custom-navlink:hover {
+    color: #000000;
+    cursor: pointer;
+  }
 }
 
 /* ----------- iPhone 6+, 7+ and 8+ ----------- */
@@ -236,25 +232,50 @@ and (orientation: landscape) {
 and (min-device-width: 414px) 
 and (max-device-width: 736px) 
 and (-webkit-min-device-pixel-ratio: 3) { 
-
-}
-
-/* Portrait */
-@media only screen 
-and (min-device-width: 414px) 
-and (max-device-width: 736px) 
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: portrait) { 
-
-}
-
-/* Landscape */
-@media only screen 
-and (min-device-width: 414px) 
-and (max-device-width: 736px) 
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: landscape) { 
-
+  .container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* pointer-events: none; */
+    width: 100vw;
+    height: 100vh;
+  }
+  .container-fluid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--daffodil);
+    width: 100%;
+  }
+  .navbar {
+    width: 100%;
+    justify-content: space-evenly;
+    font-family: 'Hammersmith One', sans-serif;
+    padding: 0em;
+  }
+  #basic-navbar-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Hammersmith One', sans-serif;
+    margin: 1em;
+    padding: 0em;
+  }
+  #custom-navlink {
+    margin-left: 1em;
+    color: #c18127;
+    font-size: 1rem;
+  }
+  #form-navlink {
+    margin-left:1em;
+    font-size: 1rem;
+    font-family: 'Hammersmith One', sans-serif;
+  }
+  #custom-navlink:hover {
+    color: #000000;
+    cursor: pointer;
+  }
 }
 
 /* ----------- iPhone X ----------- */
@@ -264,23 +285,48 @@ and (orientation: landscape) {
 and (min-device-width: 375px) 
 and (max-device-width: 812px) 
 and (-webkit-min-device-pixel-ratio: 3) { 
-
-}
-
-/* Portrait */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 812px) 
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: portrait) { 
-
-}
-
-/* Landscape */
-@media only screen 
-and (min-device-width: 375px) 
-and (max-device-width: 812px) 
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: landscape) { 
-
+  .container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* pointer-events: none; */
+    width: 100%;
+    height: 100vh;
+  }
+  .container-fluid {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    background-color: var(--daffodil);
+    width: 100%;
+  }
+  .navbar {
+    width: 100%;
+    justify-content: space-evenly;
+    font-family: 'Hammersmith One', sans-serif;
+    padding: 0em;
+  }
+  #basic-navbar-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    font-family: 'Hammersmith One', sans-serif;
+    margin: 1em;
+    padding: 0em;
+  }
+  #custom-navlink {
+    margin-left: 1em;
+    color: #c18127;
+    font-size: 1rem;
+  }
+  #form-navlink {
+    margin-left:1em;
+    font-size: 1rem;
+    font-family: 'Hammersmith One', sans-serif;
+  }
+  #custom-navlink:hover {
+    color: #000000;
+    cursor: pointer;
+  }
 }
