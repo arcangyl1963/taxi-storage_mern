@@ -11,7 +11,7 @@ const AppNavbar = () => {
 
   return (
     <>
-        <Navbar bg="dark" expand="lg">
+        <Navbar expand="lg">
   <Container fluid>
     <Navbar.Collapse id="basic-navbar-nav" fixed="top">
       <Nav className="me-auto">
