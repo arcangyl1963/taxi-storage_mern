@@ -6,7 +6,17 @@ import Auth from '../utils/auth';
 
 const SignupForm = () => {
   // set initial form state
-  const [customerFormData, setCustomerFormData] = useState({ username: '', email: '', password: '' });
+  const [customerFormData, setCustomerFormData] = useState({
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  address: '',
+  city: '',
+  state: '',
+  zip: '',
+  phone: '',
+});
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -46,7 +56,6 @@ const SignupForm = () => {
       email: '',
       password: '',
       address: '',
-      apartment: '',
       city: '',
       state: '',
       zip: '',
@@ -105,7 +114,7 @@ const SignupForm = () => {
         <Form.Group>
           <Form.Label htmlFor='password'>Password</Form.Label>
           <Form.Control
-            type='password'
+            type='text'
             placeholder='Your password'
             name='password'
             onChange={handleInputChange}
@@ -118,7 +127,7 @@ const SignupForm = () => {
         <Form.Group>
           <Form.Label htmlFor='address'>Address</Form.Label>
           <Form.Control
-            type='address'
+            type='text'
             placeholder='Street number and name'
             name='address'
             onChange={handleInputChange}
@@ -129,22 +138,9 @@ const SignupForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='apartment'>Apartment Number</Form.Label>
-          <Form.Control
-            type='apartment'
-            placeholder='Your apartment number'
-            name='apartment'
-            onChange={handleInputChange}
-            value={customerFormData.apartment}
-            required
-          />
-          {/* <Form.Control.Feedback type='invalid'>apartment number is required!</Form.Control.Feedback> */}
-        </Form.Group>
-
-        <Form.Group>
           <Form.Label htmlFor='city'>City</Form.Label>
           <Form.Control
-            type='city'
+            type='text'
             placeholder='Your city'
             name='city'
             onChange={handleInputChange}
@@ -157,7 +153,7 @@ const SignupForm = () => {
         <Form.Group>
           <Form.Label htmlFor='state'>State</Form.Label>
           <Form.Control
-            type='state'
+            type='text'
             placeholder='Your state'
             name='state'
             onChange={handleInputChange}
@@ -170,9 +166,9 @@ const SignupForm = () => {
         <Form.Group>
           <Form.Label htmlFor='zip'>Zip Code</Form.Label>
           <Form.Control
-            type='zip'
+            type='text'
             placeholder='Your zip code'
-            name='state'
+            name='zip'
             onChange={handleInputChange}
             value={customerFormData.zip}
             required
@@ -183,9 +179,9 @@ const SignupForm = () => {
         <Form.Group>
           <Form.Label htmlFor='phone'>Phone</Form.Label>
           <Form.Control
-            type='phone'
+            type='text'
             placeholder='Your phone number'
-            name='state'
+            name='phone'
             onChange={handleInputChange}
             value={customerFormData.phone}
             required
@@ -194,7 +190,7 @@ const SignupForm = () => {
         </Form.Group>
 
         <Button
-          disabled={!(customerFormData.firstName && customerFormData.lastName && customerFormData.email && customerFormData.password && customerFormData.address && customerFormData.apartment && customerFormData.city && customerFormData.state && customerFormData.zip && customerFormData.phone)}
+          disabled={!(customerFormData.firstName && customerFormData.lastName && customerFormData.email && customerFormData.password && customerFormData.address && customerFormData.city && customerFormData.state && customerFormData.zip && customerFormData.phone)}
           type='submit'
           variant='success'>
           Submit

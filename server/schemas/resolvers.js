@@ -8,8 +8,8 @@ const resolvers = {
     },
 
     Mutation: {
-      addCustomer: async (parent, { firstName, lastName, email, password, address, apartment, city, state, zip, phone }) => {
-        return Customer.create({ firstName, lastName, email, password, address, apartment, city, state, zip, phone });
+      addCustomer: async (parent, { firstName, lastName, email, password, address, city, state, zip, phone }) => {
+        return Customer.create({ firstName, lastName, email, password, address, city, state, zip, phone });
       },
   }
 };
