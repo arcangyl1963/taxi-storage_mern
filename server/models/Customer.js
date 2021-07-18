@@ -8,11 +8,13 @@ const customerSchema = new Schema({
     type: String,
     required: true,
     trim: true,
+    unique: false,
   },
   lastName: {
     type: String,
     required: true,
     trim: true,
+    unique: false,
   },
   email: {
     type: String,
@@ -24,30 +26,36 @@ const customerSchema = new Schema({
     type: String,
     required: true,
     trim: true,
+    unique: false,
   },
   address: {
     type: String,
     required: true,
+    unique: false,
   },
   city: {
     type: String,
     required: true,
+    unique: false,
   },
   state: {
     type: String,
     required: true,
+    unique: false,
   },
   zip: {
     type: String,
     required: true,
+    unique: false,
   },
   phone: {
     type: String,
     required: true,
+    unique: false,
   },
   
 });
 
-const Customer = model('User', customerSchema);
+const Customer = model('Customer', customerSchema);
 
 module.exports = Customer;

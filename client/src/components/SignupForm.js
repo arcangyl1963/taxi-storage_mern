@@ -21,7 +21,7 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  // set addUser with useMutation
+  // set addCustomer with useMutation
   const [addCustomer] = useMutation(ADD_CUSTOMER);
 
   const handleInputChange = (event) => {
@@ -38,15 +38,15 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    
     try {
       const { data } = await addCustomer({
         variables: { ...customerFormData }
       });
-      console.log(data);
+      // console.log(data);
       Auth.login(data.addCustomer.token);
     } catch (err) {
-      console.error(err);
+      // console.error("try block error" + err);
       setShowAlert(true);
     }
 

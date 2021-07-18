@@ -1,4 +1,7 @@
-/feel free to use these for back end testing
+/feel free to use these for back end testing at:
+
+http://localhost:3001/graphql
+
 
 mutation addCustomer {
   addCustomer (firstName: "Beth", lastName: "Smith", 
