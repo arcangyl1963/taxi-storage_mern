@@ -33,7 +33,11 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: [Customer]!
+    customer: [Customer]!
+  }
+
+  type Mutation {
+    addCustomer(firstName: String!, lastName: String!, email: String!, password: String!, address: String!, apartment: String, city: String!, state: String!, zip: String!, phone: String!): Customer
   }
 `;
 

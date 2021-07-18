@@ -1,0 +1,34 @@
+mutation addCustomer {
+  addCustomer (firstName: "Beth", lastName: "Smith", 
+    email: "BS123@gmail.com", password: "password123", 
+    address: "123 Happy Street", apartment: "23", 
+    city: "Atlanta", state: "Georgia", 
+    zip: "30350", phone: "404-555-5555") {
+    _id
+    firstName
+    lastName
+    email
+    password
+    address	
+    apartment
+    city
+    state
+    zip
+    phone
+  } 
+}
+
+query Customers {
+  customer {
+    _id
+    firstName
+    lastName
+    email
+    password
+		address
+    apartment
+    city
+    zip
+    phone
+  }
+}
