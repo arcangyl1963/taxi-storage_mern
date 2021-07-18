@@ -1,3 +1,5 @@
+/feel free to use these for back end testing
+
 mutation addCustomer {
   addCustomer (firstName: "Beth", lastName: "Smith", 
     email: "BS123@gmail.com", password: "password123", 
