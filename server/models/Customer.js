@@ -29,10 +29,6 @@ const customerSchema = new Schema({
     type: String,
     required: true,
   },
-  apartment: {  
-    type: String,
-    required: false,
-  },
   city: {
     type: String,
     required: true,

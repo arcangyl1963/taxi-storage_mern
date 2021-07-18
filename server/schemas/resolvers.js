@@ -2,10 +2,17 @@ const { Customer } = require('../models');
 
 const resolvers = {
     Query: {
-      user: async () => {
+      customer: async () => {
         return Customer.find();
       },  
     },
-  };
+
+    Mutation: {
+      addCustomer: async (parent, { firstName, lastName, email, password, address, city, state, zip, phone }) => {
+        return Customer.create({ firstName, lastName, email, password, address, city, state, zip, phone });
+      },
+  }
+};
 
 module.exports = resolvers;
+

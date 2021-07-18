@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client'
-import { ADD_USER } from '../utils/mutations';
+import { ADD_CUSTOMER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [customerFormData, setCustomerFormData] = useState({
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  address: '',
+  city: '',
+  state: '',
+  zip: '',
+  phone: '',
+});
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
   // set addUser with useMutation
-  const [addUser] = useMutation(ADD_USER);
+  const [addCustomer] = useMutation(ADD_CUSTOMER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setCustomerFormData({ ...customerFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -30,20 +40,26 @@ const SignupForm = () => {
     }
 
     try {
-      const { data } = await addUser({
-        variables: { ...userFormData }
+      const { data } = await addCustomer({
+        variables: { ...customerFormData }
       });
       console.log(data);
-      Auth.login(data.addUser.token);
+      Auth.login(data.addCustomer.token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
     }
 
-    setUserFormData({
-      username: '',
+    setCustomerFormData({
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
+      address: '',
+      city: '',
+      state: '',
+      zip: '',
+      phone: '',
     });
   };
 
@@ -57,16 +73,29 @@ const SignupForm = () => {
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label htmlFor='firstName'>First Name</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your username'
-            name='username'
+            placeholder='Your first name'
+            name='firstName'
             onChange={handleInputChange}
-            value={userFormData.username}
+            value={customerFormData.firstName}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>First Name is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='lastName'>Last Name</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your Last name'
+            name='lastName'
+            onChange={handleInputChange}
+            value={customerFormData.lastName}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Last Name is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
@@ -76,7 +105,7 @@ const SignupForm = () => {
             placeholder='Your email address'
             name='email'
             onChange={handleInputChange}
-            value={userFormData.email}
+            value={customerFormData.email}
             required
           />
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
@@ -85,17 +114,83 @@ const SignupForm = () => {
         <Form.Group>
           <Form.Label htmlFor='password'>Password</Form.Label>
           <Form.Control
-            type='password'
+            type='text'
             placeholder='Your password'
             name='password'
             onChange={handleInputChange}
-            value={userFormData.password}
+            value={customerFormData.password}
             required
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='address'>Address</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Street number and name'
+            name='address'
+            onChange={handleInputChange}
+            value={customerFormData.address}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Street number is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='city'>City</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your city'
+            name='city'
+            onChange={handleInputChange}
+            value={customerFormData.city}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>City is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='state'>State</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your state'
+            name='state'
+            onChange={handleInputChange}
+            value={customerFormData.state}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>State is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='zip'>Zip Code</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your zip code'
+            name='zip'
+            onChange={handleInputChange}
+            value={customerFormData.zip}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Zip code is required!</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='phone'>Phone</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your phone number'
+            name='phone'
+            onChange={handleInputChange}
+            value={customerFormData.phone}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Phone number is required!</Form.Control.Feedback>
+        </Form.Group>
+
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(customerFormData.firstName && customerFormData.lastName && customerFormData.email && customerFormData.password && customerFormData.address && customerFormData.city && customerFormData.state && customerFormData.zip && customerFormData.phone)}
           type='submit'
           variant='success'>
           Submit
