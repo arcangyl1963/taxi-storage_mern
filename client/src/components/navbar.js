@@ -11,20 +11,20 @@ const AppNavbar = () => {
 
   return (
     <>
-        <Navbar expand="lg">
-  <Container fluid>
-    <Navbar.Collapse id="basic-navbar-nav" fixed="top">
+    <Navbar expand="lg">
+    <Container fluid>
+    <Navbar.Collapse id="basic-navbar-nav" sticky="top">
       <Nav className="me-auto">
-        <Nav.Link as={Link} to='/'>Home</Nav.Link>
-        <Nav.Link as={Link} to='/boxes'>Boxes</Nav.Link>
+        <Nav.Link as={Link} to='/' id="custom-navlink">Home</Nav.Link>
+        <Nav.Link as={Link} to='/boxes' id="custom-navlink">Boxes</Nav.Link>
         {/* if user is logged in show their account info and logout option*/}
         {Auth.loggedIn() ? (
             <>
-                 <Nav.Link as={Link} to='/myaccount'>My Account</Nav.Link>
+                 <Nav.Link as={Link} to='/myaccount' id="custom-navlink">My Account</Nav.Link>
                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
             </>     
         ) : (
-            <Nav.Link onClick={() => setShowModal(true)}>Sign Up/Login</Nav.Link>
+            <Nav.Link onClick={() => setShowModal(true)}id="custom-navlink">Sign Up/Login</Nav.Link>
         )}
       </Nav>
     </Navbar.Collapse>
@@ -42,10 +42,10 @@ const AppNavbar = () => {
             <Modal.Title id='signup-modal'>
                 <Nav variant='pills'>
                     <Nav.Item>
-                        <Nav.Link eventKey='login'>Login</Nav.Link>
+                        <Nav.Link id="form-navlink" eventKey='login'>Login</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
+                        <Nav.Link id="form-navlink" eventKey='signup'>Sign Up</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Modal.Title>
