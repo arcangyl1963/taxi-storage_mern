@@ -1,19 +1,17 @@
-/feel free to use these for back end testing at:
+Feel free to use these for server testing at: http://localhost:3001/graphql
 
-http://localhost:3001/graphql
 
 
 mutation addCustomer {
   addCustomer (
-    $firstName: String!, 
-    $lastName: String!, 
-    $email: String!, 
-    $password: String!, 
-    $address: String!, 
-    $city: String!, 
-    $state: String!, 
-    $zip: String!, 
-    $phone: String!) {
+  firstName: "Beth", 
+  lastName: "Smith", 
+  email: "BS123@gmail.com", 
+  password: "password123", 
+  address: "123 Happy Street", 
+  city: "Atlanta", 
+  state: "Georgia", 
+  zip: "30350", phone: "404-555-5555") {
     token,
     customer {
       _id
@@ -30,20 +28,11 @@ mutation addCustomer {
   }
 }
 
-query variables example for addCustomer:
-{
-  firstName: "Beth", 
-  lastName: "Smith", 
-  email: "BS123@gmail.com", 
-  password: "password123", 
-  address: "123 Happy Street", 
-  city: "Atlanta", 
-  state: "Georgia", 
-  zip: "30350", phone: "404-555-5555"
-}
+
+
 
 mutation login {
-  login ($email: String!, $password: String! ) {
+  login (email: "BS123@gmail.com", password: "password123" ) {
     token,
     customer {
       _id
@@ -52,11 +41,6 @@ mutation login {
   }
 }
 
-query variables example for login:
-{
-  "email": "BS123@gmail.com",
-  "password": "password123
-}
 
 
 query getCustomers {
