@@ -71,6 +71,12 @@ query getCustomers {
     state
     zip
     phone
+    boxes {
+      _id
+      boxSize
+      sendToCustomer
+      getFromCustomer
+    }
   }
 }
 
@@ -86,5 +92,11 @@ query getCustomerById {
     state
     zip
     phone
+      boxes {
+      _id
+      boxSize
+      sendToCustomer
+      getFromCustomer
+    }
   }
 }

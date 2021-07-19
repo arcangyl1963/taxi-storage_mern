@@ -14,7 +14,7 @@ const resolvers = {
     },
 
     Mutation: {
-      addCustomer: async (parent, { firstName, lastName, email, password, address, city, state, zip, phone }) => {
+      addCustomer: async (parent, { firstName, lastName, email, password, address, city, state, zip, phone, }) => {
         const customer = await Customer.create({ firstName, lastName, email, password, address, city, state, zip, phone });
         const token = signToken(customer);
 
@@ -36,6 +36,25 @@ const resolvers = {
         const token = signToken(customer);
         return { token, customer };
       },
+
+          // Add a third argument to the resolver to access data in our `context`
+    addBox: async (parent, { boxId, box }, context) => {
+      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      if (context.email) {
+        return Customer.findOneAndUpdate(
+          { _id: boxId },
+          {
+            $addToSet: { boxes: box },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      // If user attempts to execute this mutation and isn't logged in, throw an error
+      throw new AuthenticationError('You need to be logged in!');
+    },
   }
 };
 
