@@ -4,11 +4,16 @@ http://localhost:3001/graphql
 
 
 mutation addCustomer {
-  addCustomer (firstName: "Beth", lastName: "Smith", 
-    email: "BS123@gmail.com", password: "password123", 
-    address: "123 Happy Street", 
-    city: "Atlanta", state: "Georgia", 
-    zip: "30350", phone: "404-555-5555") {
+  addCustomer (
+    $firstName: String!, 
+    $lastName: String!, 
+    $email: String!, 
+    $password: String!, 
+    $address: String!, 
+    $city: String!, 
+    $state: String!, 
+    $zip: String!, 
+    $phone: String!) {
     token,
     customer {
       _id
@@ -25,8 +30,20 @@ mutation addCustomer {
   }
 }
 
+query variables example for addCustomer:
+{
+  firstName: "Beth", 
+  lastName: "Smith", 
+  email: "BS123@gmail.com", 
+  password: "password123", 
+  address: "123 Happy Street", 
+  city: "Atlanta", 
+  state: "Georgia", 
+  zip: "30350", phone: "404-555-5555"
+}
+
 mutation login {
-  login (email: "BS123@gmail.com", password: "password123" ) {
+  login ($email: String!, $password: String! ) {
     token,
     customer {
       _id
@@ -34,6 +51,13 @@ mutation login {
     }
   }
 }
+
+query variables example for login:
+{
+  "email": "BS123@gmail.com",
+  "password": "password123
+}
+
 
 query getCustomers {
   customers {
