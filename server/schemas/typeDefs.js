@@ -14,6 +14,12 @@ const typeDefs = gql`
     phone: String
   }
 
+  # Set up an Auth type to handle returning data from a profile creating or user login
+  type Auth {
+    token: ID!
+    customer: Customer
+  }
+
   type Boxes {
     _id: ID
     customer: ID
@@ -32,11 +38,16 @@ const typeDefs = gql`
   }
 
   type Query {
-    customer: [Customer]!
+    customers: [Customer]!
+    customer(customerId: ID!): Customer
   }
 
   type Mutation {
-    addCustomer(firstName: String!, lastName: String!, email: String!, password: String!, address: String!, city: String!, state: String!, zip: String!, phone: String!): Customer
+    addCustomer(
+      firstName: String!, lastName: String!, email: String!, 
+      password: String!, address: String!, city: String!, 
+      state: String!, zip: String!, phone: String!): Customer
+    login(email: String!, password: String!): Auth
   }
 `;
 
