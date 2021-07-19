@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
+const boxSchema = require('./Box');
 
 // to be expanded
 
@@ -54,6 +54,9 @@ const customerSchema = new Schema({
     required: true,
     unique: false,
   },
+  boxes: [
+    boxSchema
+  ]
   
 });
 

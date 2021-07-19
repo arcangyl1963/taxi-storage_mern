@@ -12,6 +12,7 @@ const typeDefs = gql`
     state: String
     zip: String
     phone: String
+    boxes: [Box]
   }
 
   # Set up an Auth type to handle returning data from a profile creating or user login
@@ -20,13 +21,11 @@ const typeDefs = gql`
     customer: Customer
   }
 
-  type Boxes {
-    _id: ID
-    customer: ID
-    withCustomer: Boolean
-    inStorage: Boolean
-    inTransitCustomer: Boolean
-    inTransitStorage: Boolean
+  type Box {
+    _id: ID!
+    boxSize: String!
+    sendToCustomer: Boolean!
+    getFromCustomer: Boolean!
   }
 
   type Operator {
@@ -48,7 +47,11 @@ const typeDefs = gql`
       password: String!, address: String!, city: String!, 
       state: String!, zip: String!, phone: String!): Auth
     login(email: String!, password: String!): Auth
+
+    addBox(
+      boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Box
   }
+
 `;
 
 module.exports = typeDefs;
