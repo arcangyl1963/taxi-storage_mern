@@ -1,4 +1,4 @@
-const { Customer } = require('../models');
+const { Customer, boxSchema } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
@@ -37,13 +37,16 @@ const resolvers = {
         return { token, customer };
       },
 
+
           // Add a third argument to the resolver to access data in our `context`
-    addBox: async (parent, { boxId, box }, context) => {
+    addBoxToCustomer: async (parent, { boxId, box }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      
       if (context.email) {
         return Customer.findOneAndUpdate(
           { _id: boxId },
           {
+            // $addToSet: { boxes: boxSchema.toObject({ context: context }) },
             $addToSet: { boxes: box },
           },
           {
@@ -55,8 +58,22 @@ const resolvers = {
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError('You need to be logged in!');
     },
+  
+
+        // Make it so a logged in user can only remove a skill from their own profile
+        removeBoxFromCustomer: async (parent, { skill }, context) => {
+          if (context.customer) {
+            return Customer.findOneAndUpdate(
+              { _id: context.customer._id },
+              { $pull: { boxes: box } },
+              { new: true }
+            );
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        },
+      },
   }
-};
+
 
 module.exports = resolvers;
 
