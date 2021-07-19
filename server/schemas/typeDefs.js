@@ -46,7 +46,7 @@ const typeDefs = gql`
       firstName: String!, lastName: String!, email: String!, 
       password: String!, address: String!, city: String!, 
       state: String!, zip: String!, phone: String!): Auth
-    login(email: String!, password: String!): Auth
+      login(email: String!, password: String!): Auth
 
     addBox(
       boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Box
