@@ -34,7 +34,7 @@ const resolvers = {
         }
   
         const token = signToken(customer);
-        return { token, profile };
+        return { token, customer };
       },
   }
 };
