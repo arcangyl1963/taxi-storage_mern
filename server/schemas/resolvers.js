@@ -9,7 +9,7 @@ const resolvers = {
       }, 
       
       customer: async (parent, { customerId }) => {
-        return Profile.findOne({ _id: customerId });
+        return Customer.findOne({ _id: customerId });
       },
     },
 

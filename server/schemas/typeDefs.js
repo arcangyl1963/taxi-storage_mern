@@ -46,7 +46,7 @@ const typeDefs = gql`
     addCustomer(
       firstName: String!, lastName: String!, email: String!, 
       password: String!, address: String!, city: String!, 
-      state: String!, zip: String!, phone: String!): Customer
+      state: String!, zip: String!, phone: String!): Auth
     login(email: String!, password: String!): Auth
   }
 `;

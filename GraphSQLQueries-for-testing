@@ -9,28 +9,47 @@ mutation addCustomer {
     address: "123 Happy Street", 
     city: "Atlanta", state: "Georgia", 
     zip: "30350", phone: "404-555-5555") {
+    token,
+    customer {
+      _id
+      firstName
+      lastName
+      email
+      password
+      address	
+      city
+      state
+      zip
+      phone
+  	} 
+  }
+}
+
+query getCustomers {
+  customers {
     _id
     firstName
     lastName
     email
     password
-    address	
+    address
     city
     state
     zip
     phone
-  } 
+  }
 }
 
-query Customers {
-  customer {
+query getCustomerById {
+  customer (customerId: "60f4be1de5786e44b816d88d") {
     _id
     firstName
     lastName
     email
     password
-		address
+    address
     city
+    state
     zip
     phone
   }
