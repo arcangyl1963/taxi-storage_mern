@@ -30,13 +30,14 @@ mutation addCustomer {
 
 
 
-
 mutation login {
-  login (email: "BS123@gmail.com", password: "password123" ) {
+  login (
+    email: "maggie123@gmail.com"
+    password: "password123") {
     token,
     customer {
-      _id
       email
+      password
     }
   }
 }
