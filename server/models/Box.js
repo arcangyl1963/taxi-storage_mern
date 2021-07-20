@@ -1,22 +1,13 @@
-const { Schema } = require("mongoose");
+const mongoose = require("mongoose");
 
-// to be expanded
+const Schema = mongoose.Schema;
 
 const BoxSchema = new Schema({
-  boxSize: {
-    type: Number,
-  },
-  sendToCustomer: {
-    type: Boolean,
-  },
-  getFromCustomer: {
-    type: Boolean,
-  },
+  boxSize: String,
+  sendToCustomer: Boolean,
+  getFromCustomer: Boolean,
 });
 
+const Box = mongoose.model("Box", BoxSchema);
 
-
-
-// const Box = model("Boxes", BoxSchema);
-
-module.exports = BoxSchema;
+module.exports = Box;

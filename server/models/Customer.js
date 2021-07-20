@@ -55,7 +55,10 @@ const customerSchema = new Schema({
     unique: false,
   },
   boxes: [
-    boxSchema
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Box',
+    }
   ]
   
 });
