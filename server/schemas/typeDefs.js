@@ -8,20 +8,24 @@ const typeDefs = gql`
     email: String
     password: String
     address: String
-    apartment: String
     city: String
     state: String
     zip: String
     phone: String
+    boxes: [Box]
   }
 
-  type Boxes {
-    _id: ID
-    customer: ID
-    withCustomer: Boolean
-    inStorage: Boolean
-    inTransitCustomer: Boolean
-    inTransitStorage: Boolean
+  # Set up an Auth type to handle returning data from a profile creating or user login
+  type Auth {
+    token: ID!
+    customer: Customer
+  }
+
+  type Box {
+    _id: ID!
+    boxSize: String!
+    sendToCustomer: Boolean!
+    getFromCustomer: Boolean!
   }
 
   type Operator {
@@ -33,8 +37,36 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: [Customer]!
+    customers: [Customer]!
+    customer(customerId: ID!): Customer
   }
+
+  type Mutation {
+    addCustomer(
+      firstName: String!, 
+      lastName: String!, 
+      email: String!, 
+      password: String!, 
+      address: String!, 
+      city: String!, 
+      state: String!, 
+      zip: String!, 
+      phone: String!
+      # we need a way to add an empty array for customer boxes to be added.
+      
+      ): Auth
+   
+    login(email: String!, password: String!): Auth
+
+    createBox(boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Box
+
+    addBoxToCustomer(customerId: ID!, boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Customer
+
+    removeBoxFromCustomer(customerId: ID!, boxId: ID!): Customer
+  }
+
+    
+
 `;
 
 module.exports = typeDefs;

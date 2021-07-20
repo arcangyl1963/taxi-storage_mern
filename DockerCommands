@@ -1,0 +1,8 @@
+Build container:
+
+docker build -t taxi-storage .
+
+
+Start app container:
+
+docker run -dp 3000:3000 taxi-storage
