@@ -1,4 +1,5 @@
 const Customer = require('./Customer');
-const Box = require('./Box');
+const Boxes = require('./Boxes');
+const Operator = require('./Operator');
 
-module.exports = { Customer, Box };
+module.exports = { Customer, Boxes, Operator };
