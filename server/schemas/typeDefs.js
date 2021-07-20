@@ -43,11 +43,22 @@ const typeDefs = gql`
 
   type Mutation {
     addCustomer(
-      firstName: String!, lastName: String!, email: String!, 
-      password: String!, address: String!, city: String!, 
-      state: String!, zip: String!, phone: String!): Auth
+      firstName: String!, 
+      lastName: String!, 
+      email: String!, 
+      password: String!, 
+      address: String!, 
+      city: String!, 
+      state: String!, 
+      zip: String!, 
+      phone: String!
+      # we need a way to add an empty array for customer boxes to be added.
+      
+      ): Auth
    
     login(email: String!, password: String!): Auth
+
+    createBox(boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Box
 
     addBoxToCustomer(customerId: ID!, boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Customer
 
