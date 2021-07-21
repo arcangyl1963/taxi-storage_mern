@@ -10,14 +10,14 @@ services:
     command: /usr/src/app/node_modules/.bin/nodemon server.js
     volumes:
       - ./server/:/usr/src/app
-      - /usr/src/app/node_modules
     ports:
       - "5000:5000"
     depends_on:
       - mongo
     # env_file: ./server/.env
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
+      - MONGO_URL=mongodb://mongo:27017/myapp
     networks:
       - app-network
   mongo:

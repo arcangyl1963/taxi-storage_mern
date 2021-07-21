@@ -1,4 +1,4 @@
-const { Customer, boxSchema } = require('../models');
+const { Customer, Box } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
@@ -20,6 +20,7 @@ const resolvers = {
 
         return { token, customer };
       },
+
       login: async (parent, { email, password }) => {
         const customer = await Customer.findOne({ email });
   
@@ -37,18 +38,20 @@ const resolvers = {
         return { token, customer };
       },
 
+      createBox: async (parent, { customerId, boxSize, sendToCustomer, getFromCustomer }) => {
+        const box = await Box.create({ customerId, boxSize, sendToCustomer, getFromCustomer  });
+        return box;
+      },
+
 
           // Add a third argument to the resolver to access data in our `context`
-    addBoxToCustomer: async (parent, { boxId, box }, context) => {
+    addBoxToCustomer: async (parent, { customerId, boxId }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       
       if (context.email) {
         return Customer.findOneAndUpdate(
-          { _id: boxId },
-          {
-            // $addToSet: { boxes: boxSchema.toObject({ context: context }) },
-            $addToSet: { boxes: box },
-          },
+          { _id: customerId },
+          { $push: { boxes: boxId } },
           {
             new: true,
             runValidators: true,
@@ -60,12 +63,12 @@ const resolvers = {
     },
   
 
-        // Make it so a logged in user can only remove a skill from their own profile
-        removeBoxFromCustomer: async (parent, { skill }, context) => {
-          if (context.customer) {
+        // Make it so a logged in user can only remove a box from their own profile
+        removeBoxFromCustomer: async (parent, { customerId, boxId }, context) => {
+          if (context.email) {
             return Customer.findOneAndUpdate(
-              { _id: context.customer._id },
-              { $pull: { boxes: box } },
+              { _id: customerId },
+              { $pull: { boxes: boxId } },
               { new: true }
             );
           }
