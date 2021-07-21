@@ -3,4 +3,3 @@ const Box = require('./Box');
 
 module.exports = { Customer, Box };
 
-// test text please ignore
