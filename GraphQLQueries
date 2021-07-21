@@ -86,6 +86,14 @@ query getCustomerById {
   }
 }
 
+query boxes {
+  boxes {
+    _id
+  }
+}
+
+
+
 mutation createBox {
   createBox (
     boxSize:"1", sendToCustomer: true, getFromCustomer:false) {
@@ -94,3 +102,10 @@ mutation createBox {
   }
 }
 
+
+mutation removeBox {
+  removeBox (
+    boxId: "60f769518c6dc71d3c8b9b30") {
+    _id
+  }
+}
