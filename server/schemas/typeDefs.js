@@ -40,6 +40,7 @@ const typeDefs = gql`
   type Query {
     customers: [Customer]!
     customer(customerId: ID!): Customer
+    boxes: [Box]!
   }
 
   type Mutation {
@@ -61,7 +62,7 @@ const typeDefs = gql`
 
     addBoxToCustomer(customerId: ID!, boxId: ID!): Customer
 
-    removeBoxFromCustomer(customerId: ID!, boxId: ID!): Customer
+    removeBox(boxId: ID!): Box
   }
 
     
