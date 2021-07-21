@@ -76,7 +76,6 @@ const resolvers = {
     // Add a third argument to the resolver to access data in our `context`
     addBoxToCustomer: async (parent, { customerId, boxId }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-
       if (context.email) {
         return Customer.findOneAndUpdate(
           { _id: customerId },
@@ -92,16 +91,16 @@ const resolvers = {
     },
 
     // Make it so a logged in user can only remove a box from their own profile
-    // removeBoxFromCustomer: async (parent, { customerId, boxId }, context) => {
-    //   if (context.email) {
-    //     return Customer.findOneAndUpdate(
-    //       { _id: customerId },
-    //       { $pull: { boxes: boxId } },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+    removeBoxFromCustomer: async (parent, { customerId, boxId }, context) => {
+      if (context.email) {
+        return Customer.findOneAndUpdate(
+          { _id: customerId },
+          { $pull: { boxes: boxId } },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 
