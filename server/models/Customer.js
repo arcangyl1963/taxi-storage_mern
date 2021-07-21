@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const boxSchema = require('./Box');
+const Box = require('./Box');
 
 // to be expanded
 

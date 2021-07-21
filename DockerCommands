@@ -1,8 +1,10 @@
 Build container:
 
-docker build -t taxi-storage .
+docker-compose build
 
 
 Start app container:
 
 docker run -dp 3000:3000 taxi-storage
+
+docker-compose up -d

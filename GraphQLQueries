@@ -85,3 +85,12 @@ query getCustomerById {
     }
   }
 }
+
+mutation createBox {
+  createBox (
+    boxSize:"1", sendToCustomer: true, getFromCustomer:false) {
+    boxSize
+    _id
+  }
+}
+

@@ -19,6 +19,7 @@ const typeDefs = gql`
   type Auth {
     token: ID!
     customer: Customer
+  
   }
 
   type Box {
@@ -52,15 +53,13 @@ const typeDefs = gql`
       state: String!, 
       zip: String!, 
       phone: String!
-      # we need a way to add an empty array for customer boxes to be added.
-      
       ): Auth
    
     login(email: String!, password: String!): Auth
 
     createBox(boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Box
 
-    addBoxToCustomer(customerId: ID!, boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Customer
+    addBoxToCustomer(customerId: ID!, boxId: ID!): Customer
 
     removeBoxFromCustomer(customerId: ID!, boxId: ID!): Customer
   }
