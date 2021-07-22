@@ -1,4 +1,18 @@
-Build container:
+
+
+Build client container (must be done in client directory)
+docker build -t taxi-storage-client .
+
+Build server container(must be done in server directory)
+docker build -t taxi-storage-server .
+
+Run client container:
+docker run -p 3000:3000 taxi-storage-client
+
+Start all 3 containers:
+docker-compose up
+
+Create entire application build:
 docker-compose build
 
 Start app container:
@@ -14,9 +28,6 @@ Docker run:
 -t = terminal,  -i = interactive, include which image to run
 docker run -t -i ubuntu:13.10 echo "This is running."
 
-Docker run with name defined by me:
-docker run -t -i --name="Big-Oak" ubuntu:13.10 /bin/bash
-*generates error,  no bin/bash file
 
 Show status of all images:
 docker ps -a
@@ -24,7 +35,7 @@ docker ps -a
 Show images that are actively running:
 docker ps
 
-Remove container:
+Remove image:
 docker rm <image id>
 
 Run docker with bash shell for interactivity:
@@ -32,3 +43,6 @@ docker run -t -i  ubuntu:13.10 /bin/bash
 
 
 *docker help shows available commands
+
+*Tutorial
+https://medium.com/mozilla-club-bbsr/dockerizing-a-mern-stack-web-application-ebf78babf136
