@@ -15,7 +15,15 @@ const resolvers = {
 
     boxes: async () => {  
       return Box.find();
-    }
+    },
+
+    // By adding context to our query, we can retrieve the logged in user without specifically searching for them
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return Customer.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 
   Mutation: {
@@ -53,7 +61,9 @@ const resolvers = {
       }
 
       const token = signToken(customer);
+      
       return { token, customer };
+
     },
 
     createBox: async (
@@ -74,14 +84,14 @@ const resolvers = {
     
     },
 
-    //needs to be tested
+    // needs to be tested
     // Add a third argument to the resolver to access data in our `context`
     addBoxToCustomer: async (parent, { customerId, boxId }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      if (context.email) {
+      if (context.user) {
         return Customer.findOneAndUpdate(
           { _id: customerId },
-          { $push: { boxes: boxId } },
+          { $addToSet: { boxes: boxId } },
           {
             new: true,
             runValidators: true,
@@ -92,10 +102,11 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+
     //needs to be tested
     // Make it so a logged in user can only remove a box from their own profile
     removeBoxFromCustomer: async (parent, { customerId, boxId }, context) => {
-      if (context.email) {
+      if (context.user) {
         return Customer.findOneAndUpdate(
           { _id: customerId },
           { $pull: { boxes: boxId } },
