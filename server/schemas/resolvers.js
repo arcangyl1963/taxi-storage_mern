@@ -15,7 +15,15 @@ const resolvers = {
 
     boxes: async () => {  
       return Box.find();
-    }
+    },
+
+    // By adding context to our query, we can retrieve the logged in user without specifically searching for them
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return Customer.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 
   Mutation: {
