@@ -70,7 +70,7 @@ mutation addBoxToCustomer($customerId: String!, $boxId: String!) {
   }
   `
 
-  export const removeBox = gql`
+  export const REMOVE_BOX = gql`
   mutation removeBox($boxId: String!) {
     removeBox(boxId: $boxId) {
       Box {
