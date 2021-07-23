@@ -82,4 +82,33 @@ mutation addBoxToCustomer($customerId: String!, $boxId: String!) {
     }
   }
   `
-
+ export const SEND_TO_CUSTOMER = gql`
+ mutation sendToCustomer($customerId: String!, $boxId: String!, $sendToCustomer: Boolean!) {
+    sendToCustomer(customerId: $customerId, boxId: $boxId, sendToCustomer: $sendToCustomer) {
+        Customer {
+            _id
+        boxes {
+            _id
+            boxSize
+            sendToCustomer
+            getFromCustomer
+        }
+      }
+    }
+ }
+ `
+ export const GET_FROM_CUSTOMER = gql`
+ mutation getFromCustomer($customerId: String!, $boxId: String!, $getFromCustomer: Boolean!) {
+    getFromCustomer(customerId: $customerId, boxId: $boxId, getFromCustomer: $getFromCustomer) {
+        Customer {
+            _id
+        boxes {
+            _id
+            boxSize
+            sendToCustomer
+            getFromCustomer
+        }
+      }
+    }
+ }
+ `
