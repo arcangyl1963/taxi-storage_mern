@@ -28,14 +28,12 @@ export const LOGIN_USER = gql`
 export const CREATE_BOX = gql`
   mutation createBox($boxSize: String!, $sendToCustomer: Boolean!, $getFromCustomer: Boolean!) {
    createBox(boxSize: $boxSize, sendToCustomer: $sendToCustomer, getFromCustomer: $getFromCustomer) {
-     Box {
        _id
        boxSize
        sendToCustomer
        getFromCustomer
      }
     }
-  }
   `
 
 export const ADD_BOX_TO_CUSTOMER = gql`

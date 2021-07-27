@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_CUSTOMER = gql`
-    query customer($customerId: ID!) {
-        customer(customerId: $customerId) {
+    query  {
+        customer($customerId: ID!) {
             _id 
             firstName
             lastName
@@ -20,25 +20,40 @@ export const QUERY_CUSTOMER = gql`
                 sendToCustomer
                 getFromCustomer
             }
-            `
-            
+        }
+    }
+            `;
 
 export const QUERY_ME = gql`
-            _id 
-            firstName
-            lastName
-            email
-            password
-            phone
-            address 
-            city
-            state
-            zip
-            phone
-            boxes {
-                _id
-                boxSize
-                sendToCustomer
-                getFromCustomer
-            }
-          `;
+  {
+    me {
+      _id
+      firstName
+      lastName
+      email
+      password
+      phone
+      address
+      city
+      state
+      zip
+      phone
+      boxes {
+        _id
+        boxSize
+        sendToCustomer
+        getFromCustomer
+      }
+    }
+  }
+`;
+export const QUERY_BOXES = gql`
+  {
+    boxes {
+      _id
+      boxSize
+      sendToCustomer
+      getFromCustomer
+    }
+  }
+`;
