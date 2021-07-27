@@ -1,66 +1,101 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { REMOVE_BOX_FROM_CUSTOMER } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+import { CREATE_BOX } from '../utils/mutations';
+// import { QUERY_ME } from '../utils/queries';
+import { Container, Row, Col, Button, Form, Image } from 'react-bootstrap';
+import Img from '../images/box_size_graphic_700.png'
 
-const BoxForm = ({ customerId }) => {
-    const [box, setBox] = useState('');
-  
-    const [addBox, { error }] = useMutation(ADD_BOX_TO_USER,);
-  
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-  
-      try {
-        const data = await addBox({
-          variables: { customerId, box },
-        });
-  
-        setBox('');
-      } catch (err) {
-        console.error(err);
-      }
-    };
-  
-    return (
-      <div>
-        <h4>Buy a box.</h4>
-  
-        {Auth.loggedIn() ? (
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="col-12 col-lg-9">
-              <input
-                placeholder="Buy a box"
-                value={box}
-                className="form-input w-100"
-                onChange={(event) => setBox(event.target.value)}
-              />
-            </div>
-  
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-info btn-block py-3" type="submit">
-                Buy a box
-              </button>
-            </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
-          </form>
-        ) : (
-          <p>
-            You need to be logged in to buy a box. Please{' '}
-            <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-          </p>
-        )}
-      </div>
-    );
+const BoxForm = () => {
+  const [box, setBox] = useState({ boxSize: '', sendToCustomer: false, getFromCustomer: false });
+ 
+  // set state for form validation - box size is selected
+  const [validated] = useState(false);
+  // set addBox with useMutation
+  const [addBox] = useMutation(CREATE_BOX);
+  // get user's data for customerId
+  // const { loading, data } = useQuery(QUERY_ME);
+  // const [userData, setUserData ] = useState(loading ? null : data.me);
+  // set add the box to customer with useMutation
+  // const [addBoxToCustomer] = useMutation(ADD_BOX_TO_CUSTOMER);
+  const handleFormInput = (event) => {
+    const { boxsize, value } = event.target;
+    setBox({ ...box, [boxsize]: value });
   };
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    try {
+      const data = await addBox({
+        variables: { ...box },
+        })
+      console.log(data);
+      setBox({
+        boxSize: '',
+      });
+    } catch (err) {
+      console.error(err);
+    }
+
+  };
+
+  // const handleAddBoxToCustomer = async (customerId) => {
+  //   try {
+  //     const data =  await addBoxToCustomer({
+  //       variables: { customerId },
+  //     });
+  //     setUserData(() => {
+  //       return{
+  //         ...userData,
+  //         customerId: data.data.addBoxToCustomer.customerId
+  //       }
+  //     })
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // } 
+
+  return (
+    <>
+<Container>
+  <Row>
+    <Col xs={3} md={3}>
+      <Image src={ Img } id="box-size-image" alt="box size graphic" />
+    </Col>
+  </Row>
+</Container>
+      <Form noValidate validated={validated} onSubmit={ handleFormSubmit }>
+        <Form.Group>
+          <Form.Label>Select a Box Size</Form.Label>
+          <Form.Control
+            as="select"
+            name='boxsize'
+            onChange={handleFormInput}
+            // value=''
+          >
+            <option>Choose a box size...</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+            </Form.Control>
+            <Form.Control.Feedback type="invalid">A selection is required</Form.Control.Feedback>
+        </Form.Group>
+        <Button
+        type="submit"
+        variant="success"
+        // onClick={ handleAddBoxToCustomer }
+        >
+            Purchase Box
+        </Button>
+      </Form>
+    </>
+  );
+};
 
 export default BoxForm;
