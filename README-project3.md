@@ -30,12 +30,13 @@ The Taxi Storage application utilize the following technologies:
 ## Table of contents
 
 ***
-Installation
-Usage
-License
-Contributors
-Test
-Questions
+
+- Installation
+- Usage
+- License
+- Contributors
+- Test
+- Questions
 
 ## Installation
 
