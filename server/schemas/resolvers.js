@@ -101,6 +101,22 @@ const resolvers = {
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError("You need to be logged in!");
     },
+    // add customer ID to the box
+    addCustomerToBox: async (parent, { boxId, customerId }, context) => {
+      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      if (context.user) {
+        return Box.findOneAndUpdate(
+          { _id: boxId },
+          { $addToSet: { customers: customerId } },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      // If user attempts to execute this mutation and isn't logged in, throw an error
+      throw new AuthenticationError("You need to be logged in!");
+    },
 
 
     //needs to be tested

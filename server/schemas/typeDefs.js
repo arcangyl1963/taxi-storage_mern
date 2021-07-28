@@ -27,6 +27,7 @@ const typeDefs = gql`
     boxSize: String!
     sendToCustomer: Boolean!
     getFromCustomer: Boolean!
+    customers: [Customer]!
   }
 
   type Operator {
@@ -62,6 +63,8 @@ const typeDefs = gql`
     createBox(boxSize: String!, sendToCustomer: Boolean!, getFromCustomer: Boolean!): Box
 
     addBoxToCustomer(customerId: ID!, boxId: ID!): Customer
+
+    addCustomerToBox(customerId: ID!, boxId: ID!): Box
 
     removeBoxFromCustomer(customerId: ID!, boxId: ID!): Customer
 
