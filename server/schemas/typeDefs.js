@@ -66,7 +66,10 @@ const typeDefs = gql`
     removeBoxFromCustomer(customerId: ID!, boxId: ID!): Customer
 
     removeBox(boxId: ID!): Box
+
+   
   }
+
 
     
 
