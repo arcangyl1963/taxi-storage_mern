@@ -1,156 +1,91 @@
-# 23 Final Project: MERN Stack Single-Page Application
+# 23 Final Project: Taxi Storage
 
-Projects have played a key role in your journey to becoming a full-stack web developer. As you apply for development jobs, your portfolio is absolutely vital to opening doors to opportunities. Your portfolio showcases high-quality deployed examples of your work, and you can use your finished projects for that very purpose.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This project is a fantastic opportunity to show employers your collaborative skills and coding abilities, especially in the context of a scalable, user-focused MERN app. Remember that employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job.
+***
 
-## Project Requirements
+## Description
 
-Your group will use everything you’ve learned throughout this course to create a MERN stack single-page application that works with real-world data to solve a real-world challenge, with a focus on data and user demand. This project will provide you with the best opportunity to demonstrate your problem-solving skills, which employers will want to see during interviews. Once again, the user story and acceptance criteria will depend on the project that you create, but your project must fulfill the following requirements:
+Live downtown, and have no storage for upcoming season decorations. Taxi storage lights are on and waiting at the curb to pickup ,deliever and store your seasonal iteams or extra household items you would like to store.
 
-* Use React for the front end.
+Taxi storage has everything we've learned throughout this course to create a MERN stack single-page application that works with real-world data to solve real-world challanges with focus on data and user demand.
 
-* Use GraphQL with a Node.js and Express.js server.
+Taxi storage application allows the user to create a profile, choose a box size that best fits there seasonal iteams. Once you have you have choose your option you have the choice if you want your boxes delivered or picked up. The last step is the confirmations you have selected, Taxi storage will fulfill your request and store or deliver your items to your front door.
 
-* Use MongoDB and the Mongoose ODM for the database.
+The Taxi Storage application utilize the following technologies:
 
-* Use queries and mutations for retrieving, adding, updating, and deleting data.
+- javascript
+- Node.js
 
-* Be deployed using Heroku (with data).
+- NPM Packages
+  - bootstrap
+  - react-bootstrap
+  - react-scripts
+  - react-router-dom
+  - graphql
+  - graphql-tag
+  - jwt-decode
+  - web-vitals
 
-* Have a polished UI.
+## Table of contents
 
-* Be responsive.
+***
+Installation
+Usage
+License
+Contributors
+Test
+Questions
 
-* Be interactive (i.e., accept and respond to user input).
+## Installation
 
-* Include authentication (JWT).
+***
+Our files can be accessed in the repository ![here](https://github.com/DRockmore89/Taxi_storage.git "REPO")
 
-* Protect sensitive API key information on the server.
+## Usage
 
-* Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, etc.).
+- Use React for the front end.
 
-* Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+- Use GraphQL with a Node.js and Express.js server.
 
-### CSS Styling
+- Use MongoDB and the Mongoose ODM for the database.
 
-Instead of using a CSS library like Bootstrap, consider one of the following suggestions:
+- Use queries and mutations for retrieving, adding, updating, and deleting data.
 
-* Look into the concept of CSS-in-JS, which abstracts CSS to the component level, using JavaScript to describe styles in a declarative and maintainable way. Some popular libraries include [styled-components](https://styled-components.com/) and [Emotion](https://emotion.sh/docs/introduction).
+- deployed using Heroku (with data).
 
-* Try using a component library, such as [Semantic UI](https://semantic-ui.com/), [Chakra UI](https://chakra-ui.com/), or [Ant Design](https://ant.design/).
+- Polished UI.
 
-* Create all the CSS for your application just using CSS.
+- Be responsive.
 
-Ultimately, it doesn't matter which of these options you choose&mdash;it just needs to look professional and be mobile-friendly.
+- Be interactive (i.e., accept and respond to user input).
 
-### Payment Platform
+- Include authentication (JWT).
 
-Consider integrating the Stripe payment platform. Even if you don’t create an e-commerce application, you could set up your site to accept charitable donations.
+- Protect sensitive API key information on the server.
 
-### Bonus
+## License
 
-Although this is not a requirement for your project, see if you can also implement functionality to meet the minimum requirements of a PWA:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-* Uses a web manifest
+This software is licensed under an MIT license:
 
-* Uses a service worker for offline functionality
+Copyright © 2021 Taxi Storage
 
-* Is installable
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Presentation Requirements
+## Contributors
 
-Use this [project presentation template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing) to address the following:
+- Abe Kim
+- Michael Birdsong
+- Jim Harris
+- Jonathan Rein
+- Donald Rockmore
 
-* Elevator pitch: a one minute description of your application
+## Tests
 
-* Concept: What is your user story? What was your motivation for development?
+## Questions
 
-* Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
-
-* Demo: Show your stuff!
-
-* Directions for Future Development
-
-* Links to the deployed application and the GitHub repository. Use the [Guide to Deploy with Heroku and MongoDB Atlas](https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-heroku-and-mongodb-atlas) on The Full-Stack Blog if you need a reminder on how to deploy to Heroku.
-
-## Grading Requirements
-
-This project is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 25%
-
-* Satisfies the following code requirements:
-
-  * Application uses React for the front end.
-
-  * Application has a GraphQL API with a Node.js and Express.js server, and uses queries and mutations for retrieving, adding, updating, and deleting data.
-
-  * Application uses MongoDB and the Mongoose ODM for the database and protects sensitive API key information on the server.
-
-  * Application includes user authentication using JWT.
-
-### Concept 10%
-
-* Application should be a unique and novel idea.
-
-* Your group should clearly and concisely articulate your project idea.
-
-### Deployment: 20%
-
-* Application deployed at live URL on Heroku and loads with no errors.
-
-* Application GitHub URL submitted.
-
-### Repository Quality: 10%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class and id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality README file with description, screenshot, and link to deployed application.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application is responsive.
-
-### Presentation 10%
-
-* Your group should present using Google Slides, Powerpoint, or a similar presentation software.
-
-* Every group member should speak during the presentation.
-
-* Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-
-### Collaboration 10%
-
-* There are no major disparities in the number of GitHub contributions between group members.
-
-### Bonus
-
-Fulfilling all three of the following requirements to turn your app into a PWA will add 10 points to your grade. Note that the highest grade you can achieve is still a 100:
-
-* Uses a web manifest
-
-* Uses a service worker for offline functionality
-
-* Is installable
-
-## How to Submit Your MERN Stack Single-Page Application
-
-**Each member of your group** is required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+- Feel free to email me with any questions about this project at:
