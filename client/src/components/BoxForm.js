@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import { CREATE_BOX } from '../utils/mutations';
-// import { QUERY_ME } from '../utils/queries';
+import { useMutation, useQuery, Mutation } from '@apollo/client';
+import { CREATE_BOX, ADD_BOX_TO_CUSTOMER } from '../utils/mutations';
+import { QUERY_ME } from '../utils/queries';
 import { Container, Row, Col, Button, Form, Image } from 'react-bootstrap';
 import Img from '../images/box_size_graphic_700.png'
 
@@ -13,16 +14,16 @@ const BoxForm = () => {
   const [validated] = useState(false);
   // set addBox with useMutation
   const [addBox] = useMutation(CREATE_BOX);
+  const [addBoxToCust] = useMutation(ADD_BOX_TO_CUSTOMER);
   // get user's data for customerId
-  // const { loading, data } = useQuery(QUERY_ME);
+  const { loading, data } = useQuery(QUERY_ME);
   // const [userData, setUserData ] = useState(loading ? null : data.me);
   // set add the box to customer with useMutation
-  // const [addBoxToCustomer] = useMutation(ADD_BOX_TO_CUSTOMER);
+  const [addBoxToCustomer] = useMutation(ADD_BOX_TO_CUSTOMER);
   const handleFormInput = (event) => {
     const { boxsize, value } = event.target;
     setBox({ ...box, [boxsize]: value });
   };
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -33,7 +34,7 @@ const BoxForm = () => {
     }
     try {
       const data = await addBox({
-        variables: { ...box },
+        variables: { ...box, boxSize: 'large' },
         })
       console.log(data);
       setBox({
@@ -42,9 +43,8 @@ const BoxForm = () => {
     } catch (err) {
       console.error(err);
     }
-
-  };
-
+   };
+   
   // const handleAddBoxToCustomer = async (customerId) => {
   //   try {
   //     const data =  await addBoxToCustomer({

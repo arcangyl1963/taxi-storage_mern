@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+// import "./App.css";
 
 const ProductDisplay = () => (
   <section>
@@ -25,7 +25,7 @@ const Message = ({ message }) => (
   </section>
 );
 
-export default function App() {
+export default function CheckOut() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -44,4 +44,4 @@ export default function App() {
   }, []);
 
   return message ? <Message message={message} /> : <ProductDisplay />;
-}
+};

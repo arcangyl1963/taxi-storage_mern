@@ -5,11 +5,13 @@ import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 import Auth from '../utils/auth';
 import BoxForm from './BoxForm';
+import ProductDisplay from './CheckOut';
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
   const [showModalBoxes, setShowModalBoxes] = useState(false);
+  const [showModalCheckout, setShowModalCheckout] = useState(false);
 
   return (
     <>
@@ -32,6 +34,9 @@ const AppNavbar = () => {
                   </Nav.Link>
                   <Nav.Link as={Link} to="/myaccount" id="custom-navlink">
                     My Account
+                  </Nav.Link>
+                  <Nav.Link onClick={() => setShowModalCheckout(true)} id="custom-navlink">
+                    Cart/Checkout
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout} id="custom-navlink" >Logout</Nav.Link>
                 </>
@@ -95,7 +100,22 @@ const AppNavbar = () => {
             <Modal.Title id="box-form">Boxes</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <BoxForm handleModalClose={() => setShowModal(false)} />
+            <BoxForm handleModalClose={() => setShowModalBoxes(false)} />
+          </Modal.Body>
+        </Modal>
+      </>
+      <>
+        <Modal
+          size="lg"
+          show={showModalCheckout}
+          onHide={() => setShowModalCheckout(false)}
+          aria-labelledby="checkout"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="checkout">Checkout</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <ProductDisplay handleModalClose={() => setShowModalCheckout(false)} />
           </Modal.Body>
         </Modal>
       </>
