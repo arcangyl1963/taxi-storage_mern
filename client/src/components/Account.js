@@ -32,17 +32,28 @@ const [customerData, setCustomerData] = useState(loading ? null : data.me);
 const custId = data.me._id;
 
 return (
+    <>
     <Container>
         <Row>
             <Col xs={3} md={6} lg={12}>
-                <Image src={ IMG } id="customer-image" alt="customer image" />
-                
-                
+                <Image src={ IMG } id="customer-image" alt="customer image" /> 
             </Col>
-
         </Row>
     </Container>
-)
-
-
-
+        <card noValidate validated={validated} onSubmit={ handleFormSubmit }>
+           <Card.Header>Account</Card.Header>
+           <Card.Body>
+           <Card.Title>My Account</Card.Title>
+           <Card.Text>
+           firstName: '',
+           lastName: '',
+           email: '',
+           address: '',
+           city: '',
+           state: '',
+           zip: '',
+           phone: '',
+           </Card.Text>
+         </Card.Body>
+      </Card>
+          
