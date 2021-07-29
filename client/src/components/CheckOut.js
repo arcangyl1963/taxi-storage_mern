@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-// import "./App.css";
+import Img from '../images/box_size_graphic_700.png'
 
 const ProductDisplay = () => (
   <section>
-    <div className="product">
+    <div className="box-checkout">
       <img
-        src="https://i.imgur.com/EHyRnp2nP.png"
-        alt="The cover of Stubborn Attachments"
+        src={ Img }
+        alt="large box"
       />
       <div className="description">
-        <h3>Stubborn Attachments</h3>
-        <h5>$20.00</h5>
+        <h3>Large Box Service</h3>
+        <h5>$19.99</h5>
       </div>
     </div>
     <form action="/create-checkout-session" method="POST">
-      <button type="submit">Checkout</button>
+      <button type="submit" className="checkout-btn">Checkout</button>
     </form>
   </section>
 );

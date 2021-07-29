@@ -57,6 +57,28 @@
     color: #000000;
     cursor: pointer;
   }
+  .box-checkout {
+    color: black;
+    font-family: 'Hammersmith One', sans-serif;
+  }
+  .modal-header {
+    color: black;
+    font-family: 'Hammersmith One', sans-serif;
+  }
+  .checkout-btn {
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    background-color: green;
+  }
+
+  .description h3 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  .description h5 {
+    font-size: 1.5rem;
+    line-height: 3rem;
+  }
 
   @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
   
