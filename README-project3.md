@@ -87,6 +87,13 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Tests
 
+[Test App](https://taxi-storage.herokuapp.com/)
+
 ## Questions
 
 - Feel free to email me with any questions about this project at:
+[Jim Harris](mailto:arcangyl@gmail.com)
+[Abe Kim](mailto:Kimsabraham@gmail.com)
+[Donald Rockmore](mailto:donaldrockmore@yahoo.com)
+[Jonathan Rein](mailto:jrein1296@gmail.com)
+[Michael Birdsong](mailto:mikebird2414@yahoo.com)
