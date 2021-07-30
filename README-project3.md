@@ -41,7 +41,7 @@ The Taxi Storage application utilize the following technologies:
 ## Installation
 
 ***
-Our files can be accessed in the repository ![here](https://github.com/DRockmore89/Taxi_storage.git "REPO")
+Our files can be accessed in the repository [here](https://github.com/DRockmore89/Taxi_storage.git)<br>
 
 ## Usage
 
@@ -91,9 +91,12 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Questions
 
-- Feel free to email me with any questions about this project at:
-[Jim Harris](mailto:arcangyl@gmail.com)
-[Abe Kim](mailto:Kimsabraham@gmail.com)
-[Donald Rockmore](mailto:donaldrockmore@yahoo.com)
-[Jonathan Rein](mailto:jrein1296@gmail.com)
-[Michael Birdsong](mailto:mikebird2414@yahoo.com)
+- Feel free to email us with any questions about this project at:<br>
+[Jim Harris](mailto:arcangyl@gmail.com)<br>
+![GitHubAvatar](https://avatars.githubusercontent.com/u/77169680?v=4)<br>
+- My GitHub profile may be viewed by clicking [here](https://github.com/arcangyl1963).
+
+[Abe Kim](mailto:Kimsabraham@gmail.com)<br>
+[Donald Rockmore](mailto:donaldrockmore@yahoo.com)<br>
+[Jonathan Rein](mailto:jrein1296@gmail.com)<br>
+[Michael Birdsong](mailto:mikebird2414@yahoo.com)<br>
